@@ -116,6 +116,7 @@ monte_df = pd.DataFrame({'Valuation':value_list, 'Years of RoE > Kc':roe_len_lis
 
 avrg_value = monte_df['Valuation'].sum() / len(monte_df.index)
 
+st.subheader("Simulated Mean Share Price")
 st.write('Average value of Google Share Price simulated {} times'.format(len(monte_df.index)))
 st.write(avrg_value)
 
@@ -129,5 +130,5 @@ plt.title('Google Share Price Distribution')
 ax.set(xlabel='Share Valuation', ylabel='Frequency')
 st.pyplot()
 
-st.subheader("Resulting Simulations of Share Price")
+st.subheader("All Simulations of Share Price")
 st.table(monte_df)
