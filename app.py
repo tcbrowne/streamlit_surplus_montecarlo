@@ -121,6 +121,7 @@ st.write('Average value of Google Share Price simulated {} times'.format(len(mon
 st.write(avrg_value)
 
 # Graphs & Density Distribution
+st.subheader("Distribution of All Simulations")
 monte_df[['Valuation']].plot(kind='density') # or pd.Series()
 plt.title('Google Share Price Distribution')
 st.pyplot()
