@@ -18,7 +18,6 @@ by = 2019
 byNI = 31534
 pyBV = 177628
 byBV = 201442
-#vROE = 0.1132
 byDiv = 0
 
 #CAPM Variables
@@ -94,6 +93,11 @@ def crude_monte_carlo(num_samples):
 
     return (Value_var,roe_len_Var,roe_var) #float(sum_of_samples/num_samples)
 
+#Streamlit Section for WebApp
+st.title("Monte Carlo: Share Price of Google")
+
+sim1 = st.slider('How many simulations would you like to run?',100,100000,1000)
+
 Monte_Distribution = crude_monte_carlo(sim1)
 
 value_list = Monte_Distribution[0]
@@ -129,10 +133,6 @@ ax = sns.histplot(value_list)
 plt.title('Google Share Price Distribution')
 ax.set(xlabel='Share Valuation', ylabel='Frequency')
 st.pyplot()
-
-# bx = sns.displot(value_list, kind="kde", bw_adjust=.25)
-# bx.set(xlabel='Normal Distribution', ylabel='Frequency')
-# st.pyplot()
 
 st.subheader("Resulting Simulations of Share Price")
 st.table(monte_df)
