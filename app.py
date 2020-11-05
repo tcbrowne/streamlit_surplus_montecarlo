@@ -98,8 +98,6 @@ st.title("Monte Carlo: Share Price of Google")
 
 sim1 = st.slider('How many simulations would you like to run?',100,100000,1000)
 
-Monte_Distribution = crude_monte_carlo(sim1)
-
 st.subheader("Variable #1: Length of expected earnings surprise (RoE > cost of capital).")
 z1 = st.slider('Lower bound of expected earnings surprise.',1,100,3)
 z2 = st.slider('Upper bound of expected earnings surprise.',1,100,20)
@@ -107,6 +105,8 @@ z2 = st.slider('Upper bound of expected earnings surprise.',1,100,20)
 st.subheader("Variable #2: Expected RoE over the period.")
 n1 = st.slider('Lower bound of expected RoE.',0.01,0.50,0.08)
 n2 = st.slider('Upper bound of expected RoE.',0.01,0.50,0.23)
+
+Monte_Distribution = crude_monte_carlo(sim1)
 
 value_list = Monte_Distribution[0]
 roe_len_list = Monte_Distribution[1]
