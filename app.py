@@ -100,19 +100,6 @@ sim1 = st.slider('How many simulations would you like to run?',100,100000,1000)
 
 Monte_Distribution = crude_monte_carlo(sim1)
 
-value_list = Monte_Distribution[0]
-roe_len_list = Monte_Distribution[1]
-roe_list = Monte_Distribution[2]
-
-
-monte_df = pd.DataFrame({'Valuation':value_list, 'Years of RoE > Kc':roe_len_list,"RoE":roe_list})
-
-avrg_value = monte_df['Valuation'].sum() / len(monte_df.index)
-
-st.title("Monte Carlo: Share Price of Google")
-
-sim1 = st.slider('How many simulations would you like to run?',100,100000,1000)
-
 st.subheader("Variable #1: Length of expected earnings surprise (RoE > cost of capital).")
 z1 = st.slider('Lower bound of expected earnings surprise.',1,100,3)
 z2 = st.slider('Upper bound of expected earnings surprise.',1,100,20)
@@ -120,6 +107,14 @@ z2 = st.slider('Upper bound of expected earnings surprise.',1,100,20)
 st.subheader("Variable #2: Expected RoE over the period.")
 n1 = st.slider('Lower bound of expected RoE.',0.01,0.50,0.08)
 n2 = st.slider('Upper bound of expected RoE.',0.01,0.50,0.23)
+
+value_list = Monte_Distribution[0]
+roe_len_list = Monte_Distribution[1]
+roe_list = Monte_Distribution[2]
+
+monte_df = pd.DataFrame({'Valuation':value_list, 'Years of RoE > Kc':roe_len_list,"RoE":roe_list})
+
+avrg_value = monte_df['Valuation'].sum() / len(monte_df.index)
 
 st.write('Average value of Google Share Price simulated {} times'.format(len(monte_df.index)))
 st.write(avrg_value)
