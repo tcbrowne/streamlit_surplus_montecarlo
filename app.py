@@ -131,5 +131,7 @@ plt.title('Google Share Price Distribution')
 ax.set(xlabel='Share Valuation', ylabel='Frequency')
 st.pyplot()
 
+st.table(monte_df[["Valuation", "Years of RoE > Kc", "RoE"]].describe())
+
 st.subheader("All Simulations of Share Price")
 st.table(monte_df)
