@@ -136,3 +136,10 @@ st.table(monte_df[["Valuation", "Years of RoE > Kc", "RoE"]].describe())
 
 st.subheader("Simulations of Share Price")
 st.table(monte_df)
+
+hide_menu_style = """
+        <style>
+        #MainMenu {visibility: hidden;}
+        </style>
+        """
+st.markdown(hide_menu_style, unsafe_allow_html=True)
